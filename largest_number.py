@@ -7,28 +7,29 @@
 import random
 
 
-def largest_number(random_numbers):
-    val1 = random_numbers[0]
-    for loop_counter in range(10):
-        if val1 < random_numbers[loop_counter]:
-            val1 = random_numbers[loop_counter]
+def largest_number(random_numbers, amount_of_numbers):
+    maximum = random_numbers[0]
+    for loop_counter in range(amount_of_numbers):
+        if maximum < random_numbers[loop_counter]:
+            maximum = random_numbers[loop_counter]
 
-    return val1
+    return maximum
 
 
 def main():
     # this function creates the array
+    amount_of_numbers = 10
 
     random_numbers = []
 
     # process
-    for loop_counter in range(10):
+    for loop_counter in range(amount_of_numbers):
         number = random.randint(0, 100)
         random_numbers.append(number)
-        print("Random number {0} is: {1}".format(loop_counter, number))
+        print("Random number {0} is: {1}".format(loop_counter + 1, number))
     print("")
 
-    largest = largest_number(random_numbers)
+    largest = largest_number(random_numbers, amount_of_numbers)
 
     print("The largest number is {}".format(largest))
 
